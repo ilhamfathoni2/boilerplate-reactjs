@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { counterReducer } from "./reducers/counterReducer";
 import { cartReducer } from "./reducers/cartReducer";
+import { themeReducer } from "./reducers/themeReducer";
 import {
   persistReducer,
   persistStore,
@@ -23,6 +24,11 @@ const persistCartConfig = {
   storage,
 };
 
+const persistThemeConfig = {
+  key: "theme",
+  storage,
+};
+
 const persistedReducerCounter = persistReducer(
   persistCountConfig,
   counterReducer.reducer
@@ -33,10 +39,16 @@ const persistedReducerCart = persistReducer(
   cartReducer.reducer
 );
 
+const persistedTheme = persistReducer(
+  persistThemeConfig,
+  themeReducer.reducer
+);
+
 const store = configureStore({
   reducer: {
     counter: persistedReducerCounter,
     cart: persistedReducerCart,
+    themes: persistedTheme,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

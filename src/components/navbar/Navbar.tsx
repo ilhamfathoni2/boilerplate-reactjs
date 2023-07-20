@@ -1,20 +1,56 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
-import { useAppSelector } from "../../hooks/reduxHook";
+import { useAppSelector, useAppDispatch } from "../../hooks/reduxHook";
 import { Carts } from "../cart/Cart";
 import { logo } from "../../assets/image";
+import { setTheme } from "../../redux/reducers/themeReducer";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
+const listTheme = [
+  "DressId",
+  "light",
+  "dark",
+  "synthwave",
+  "halloween",
+  "night",
+  "cupcake",
+  "bumblebee",
+  "emerald",
+  "corporate",
+  "retro",
+  "cyberpunk",
+  "valentine",
+  "garden",
+  "forest",
+  "aqua",
+  "lofi",
+  "pastel",
+  "fantasy",
+  "wireframe",
+  "black",
+  "luxury",
+  "dracula",
+  "cmyk",
+  "autumn",
+  "business",
+  "acid",
+  "lemonade",
+  "coffee",
+  "winter",
+];
+
 export const Navbar = () => {
+  const dispatch = useAppDispatch();
+  const [show, setShow] = useState(false);
   const totalItems = useAppSelector((state) => state.cart.totalItems);
 
   return (
-    <Disclosure as="nav" className="bg-white shadow">
+    <Disclosure as="nav" className="bg-base-100 shadow">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -32,20 +68,42 @@ export const Navbar = () => {
                     alt="logo"
                   />
                 </div>
-                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
+                <div className="hidden sm:ml-6 sm:flex sm:space-x-8 sm:items-center">
+                  {/* Current: "border-primary text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   <a
                     href="/"
-                    className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
+                    className="inline-flex items-center hover:border-b-2 hover:border-primary focus:border-primary text-base-content px-1 pt-1 text-sm font-medium"
                   >
                     Home
                   </a>
                   <a
                     href="/"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    className="inline-flex items-center hover:border-b-2 hover:border-primary focus:border-primary text-base-content px-1 pt-1 text-sm font-medium"
                   >
                     Transaction
                   </a>
+                  <div className="dropdown dropdown-bottom dropdown-end">
+                    <label
+                      tabIndex={0}
+                      className="m-1 cursor-pointer inline-flex items-center hover:border-b-2 hover:border-primary focus:border-primary text-base-content px-1 pt-1 text-sm font-medium"
+                    >
+                      Theme
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                    >
+                      <div className="overflow-scroll scroll-smooth max-h-48">
+                        {listTheme.map((theme, index) => (
+                          <li key={index}>
+                            <button onClick={() => dispatch(setTheme(theme))}>
+                              {theme}
+                            </button>
+                          </li>
+                        ))}
+                      </div>
+                    </ul>
+                  </div>
                 </div>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:items-center">
@@ -76,7 +134,7 @@ export const Navbar = () => {
 
                 <button
                   type="button"
-                  className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="rounded-full bg-base-100 p-1 text-base-content hover:text-opacity-75 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -85,7 +143,7 @@ export const Navbar = () => {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    <Menu.Button className="flex rounded-full bg-base-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
@@ -103,14 +161,14 @@ export const Navbar = () => {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-base-100 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
                           <a
                             href="/"
                             className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              active ? "bg-base-100" : "",
+                              "block px-4 py-2 text-sm text-base-content"
                             )}
                           >
                             Your Profile
@@ -122,8 +180,8 @@ export const Navbar = () => {
                           <a
                             href="/"
                             className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              active ? "bg-base-100" : "",
+                              "block px-4 py-2 text-sm text-base-content"
                             )}
                           >
                             Settings
@@ -135,8 +193,8 @@ export const Navbar = () => {
                           <a
                             href="/"
                             className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              active ? "bg-base-100" : "",
+                              "block px-4 py-2 text-sm text-base-content"
                             )}
                           >
                             Sign out
@@ -149,7 +207,7 @@ export const Navbar = () => {
               </div>
               <div className="-mr-2 flex items-center sm:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-base-content hover:bg-base-100 hover:text-opacity-75 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -163,22 +221,41 @@ export const Navbar = () => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 pb-3 pt-2">
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+              {/* Current: "bg-indigo-50 border-primary text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
               <Disclosure.Button
                 as="a"
                 href="/"
-                className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
+                className="block border-l-4 border-primary bg-base-content py-2 pl-3 pr-4 text-base font-medium text-primary"
               >
                 Home
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="/"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content"
               >
                 Transaction
               </Disclosure.Button>
-              <div className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">
+              <Disclosure.Button
+                as="div"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content"
+              >
+                <button onClick={() => setShow((prev) => !prev)}>Theme</button>
+                {show && (
+                  <ul className="z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <div className="overflow-scroll scroll-smooth max-h-48">
+                      {listTheme.map((theme, index) => (
+                        <li key={index}>
+                          <button onClick={() => dispatch(setTheme(theme))}>
+                            {theme}
+                          </button>
+                        </li>
+                      ))}
+                    </div>
+                  </ul>
+                )}
+              </Disclosure.Button>
+              <div className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content">
                 <label
                   htmlFor="my_modal_6"
                   className="group flex items-center p-2 cursor-pointer mr-2"
@@ -215,16 +292,16 @@ export const Navbar = () => {
                   />
                 </div>
                 <div className="ml-3">
-                  <div className="text-base font-medium text-gray-800">
+                  <div className="text-base font-medium text-base-content">
                     Tom Cook
                   </div>
-                  <div className="text-sm font-medium text-gray-500">
+                  <div className="text-sm font-medium text-base-content">
                     tom@example.com
                   </div>
                 </div>
                 <button
                   type="button"
-                  className="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="ml-auto flex-shrink-0 rounded-full bg-base-100 p-1 text-base-content hover:text-opacity-75 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -234,21 +311,21 @@ export const Navbar = () => {
                 <Disclosure.Button
                   as="a"
                   href="/"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-base font-medium text-base-content hover:bg-base-100 hover:text-primary"
                 >
                   Your Profile
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="/"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-base font-medium text-base-content hover:bg-base-100 hover:text-primary"
                 >
                   Settings
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
                   href="/"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+                  className="block px-4 py-2 text-base font-medium text-base-content hover:bg-base-100 hover:text-primary"
                 >
                   Sign out
                 </Disclosure.Button>
@@ -259,46 +336,6 @@ export const Navbar = () => {
           {/* Put this part before </body> tag */}
           <input type="checkbox" id="my_modal_6" className="modal-toggle" />
           <div className="modal">
-            {/* <div className="modal-box">
-              <h3 className="font-bold text-lg">Redux</h3>
-              <p>With Persist</p>
-              <div className="flex py-4 items-center">
-                <button
-                  onClick={() => dispatch(decrement())}
-                  className="btn btn-outline btn-primary btn-sm"
-                >
-                  -
-                </button>
-                <p className="font-bold text-lg px-3">{count}</p>
-                <button
-                  onClick={() => dispatch(increment())}
-                  className="btn btn-outline btn-primary btn-sm"
-                >
-                  +
-                </button>
-              </div>
-              <p className="mt-4">Without Persist</p>
-              <div className="flex items-center">
-                <button
-                  onClick={() => dispatch(kurang())}
-                  className="btn btn-outline btn-primary btn-sm"
-                >
-                  -
-                </button>
-                <p className="font-bold text-lg px-3">{sisa}</p>
-                <button
-                  onClick={() => dispatch(tambah())}
-                  className="btn btn-outline btn-primary btn-sm"
-                >
-                  +
-                </button>
-              </div>
-              <div className="modal-action">
-                <label htmlFor="my_modal_6" className="btn">
-                  Close!
-                </label>
-              </div>
-            </div> */}
             <div className="modal-box">
               <label
                 htmlFor="my_modal_6"

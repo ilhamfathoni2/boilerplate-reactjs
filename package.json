@@ -1,7 +1,15 @@
 {
-  "name": "my-app",
+  "name": "boilerplate-react-js",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "node setup.env.js --env dev && react-scripts start",
+    "staging": "node setup.env.js --env staging && react-scripts start",
+    "prod": "node setup.env.js --env prod && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
@@ -24,13 +32,8 @@
     "redux-persist": "^6.0.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
+    "yargs": "^17.7.2",
     "yup": "^1.2.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

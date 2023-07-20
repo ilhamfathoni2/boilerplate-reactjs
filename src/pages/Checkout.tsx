@@ -37,18 +37,18 @@ const CheckoutPage = () => {
   }, [dispatch, totalItems]);
 
   return (
-    <div className="bg-white">
+    <div className="bg-base-100">
       {/* Background color split screen for large screens */}
       <div
-        className="fixed left-0 top-0 hidden h-full w-1/2 bg-white lg:block"
+        className="fixed left-0 top-0 hidden h-full w-1/2 bg-base-100 lg:block"
         aria-hidden="true"
       />
       <div
-        className="fixed right-0 top-0 hidden h-full w-1/2 bg-gray-50 lg:block"
+        className="fixed right-0 top-0 hidden h-full w-1/2 bg-base-100 lg:block"
         aria-hidden="true"
       />
 
-      <header className="relative border-b border-gray-200 bg-white text-sm font-medium text-gray-700">
+      <header className="relative border-b border-base-100 bg-base-100 text-sm font-medium text-base-content">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="relative flex justify-end sm:justify-center">
             <a href="/" className="absolute left-0 top-1/2 -mt-4">
@@ -67,7 +67,7 @@ const CheckoutPage = () => {
                       <a
                         href={step.href}
                         aria-current="page"
-                        className="text-indigo-600"
+                        className="text-primary"
                       >
                         {step.name}
                       </a>
@@ -77,7 +77,7 @@ const CheckoutPage = () => {
 
                     {stepIdx !== steps.length - 1 ? (
                       <ChevronRightIcon
-                        className="ml-4 h-5 w-5 text-gray-300"
+                        className="ml-4 h-5 w-5 text-base-content text-opacity-60"
                         aria-hidden="true"
                       />
                     ) : null}
@@ -95,17 +95,17 @@ const CheckoutPage = () => {
 
         <section
           aria-labelledby="summary-heading"
-          className="bg-gray-50 px-4 pb-10 pt-16 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16"
+          className="bg-base-100 bg-opacity-50 px-4 pb-10 pt-16 sm:px-6 lg:col-start-2 lg:row-start-1 lg:bg-transparent lg:px-0 lg:pb-16"
         >
           <div className="mx-auto max-w-lg lg:max-w-none">
             <h2
               id="summary-heading"
-              className="text-lg font-medium text-gray-900"
+              className="text-lg font-medium text-base-content"
             >
               Order summary
             </h2>
 
-            <ul className="divide-y divide-gray-200 text-sm font-medium text-gray-900">
+            <ul className="divide-y divide-base-content text-sm font-medium text-base-content text-opacity-75">
               {listData.map((product) => (
                 <li
                   key={product.id}
@@ -118,8 +118,8 @@ const CheckoutPage = () => {
                   />
                   <div className="flex-auto space-y-1">
                     <h3>{product.name}</h3>
-                    <p className="text-gray-500">{product.color}</p>
-                    <p className="text-gray-500">{product.size}</p>
+                    <p className="text-base-content text-opacity-50">{product.color}</p>
+                    <p className="text-base-content text-opacity-50">{product.size}</p>
                   </div>
                   <div className="flex flex-col items-end">
                     <p className="text-sm text-base-content opacity-75">
@@ -135,26 +135,26 @@ const CheckoutPage = () => {
               ))}
             </ul>
 
-            <dl className="hidden space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-900 lg:block">
+            <dl className="hidden space-y-6 border-t border-base-content pt-6 text-sm font-medium text-base-content lg:block">
               <div className="flex items-center justify-between">
-                <dt className="text-gray-600">Shipping</dt>
+                <dt className="text-base-content text-opacity-90">Shipping</dt>
                 <dd>Free</dd>
               </div>
 
-              <div className="flex items-center justify-between border-t border-gray-200 pt-6">
-                <dt className="text-base">Total</dt>
+              <div className="flex items-center justify-between border-t border-base-content pt-6">
+                <dt className="text-base-content">Total</dt>
                 <dd className="text-primary text-base">{formatCurrency(totalPrice)}</dd>
               </div>
             </dl>
 
-            <Popover className="fixed inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium text-gray-900 lg:hidden">
-              <div className="relative z-10 border-t border-gray-200 bg-white px-4 sm:px-6">
+            <Popover className="fixed inset-x-0 bottom-0 flex flex-col-reverse text-sm font-medium text-base-content lg:hidden">
+              <div className="relative z-10 border-t border-base-content bg-base-100 px-4 sm:px-6">
                 <div className="mx-auto max-w-lg">
-                  <Popover.Button className="flex w-full items-center py-6 font-medium">
-                    <span className="mr-auto text-base">Total</span>
-                    <span className="mr-2 text-base">{totalPrice}</span>
+                  <Popover.Button className="flex w-full items-center py-6 font-medium border-none">
+                    <span className="mr-auto text-base-content">Total</span>
+                    <span className="mr-2 text-primary">{totalPrice}</span>
                     <ChevronUpIcon
-                      className="h-5 w-5 text-gray-500"
+                      className="h-5 w-5 text-base-content"
                       aria-hidden="true"
                     />
                   </Popover.Button>
@@ -172,7 +172,7 @@ const CheckoutPage = () => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <Popover.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
+                    <Popover.Overlay className="fixed inset-0 bg-base-100 bg-opacity-25" />
                   </Transition.Child>
 
                   <Transition.Child
@@ -184,10 +184,10 @@ const CheckoutPage = () => {
                     leaveFrom="translate-y-0"
                     leaveTo="translate-y-full"
                   >
-                    <Popover.Panel className="relative bg-white px-4 py-6 sm:px-6">
+                    <Popover.Panel className="relative bg-base-100 px-4 py-6 sm:px-6">
                       <dl className="mx-auto max-w-lg space-y-6">
                         <div className="flex items-center justify-between">
-                          <dt className="text-gray-600">Shipping</dt>
+                          <dt className="text-base-content">Shipping</dt>
                           <dd>Free</dd>
                         </div>
                       </dl>
@@ -204,7 +204,7 @@ const CheckoutPage = () => {
             <section aria-labelledby="contact-info-heading">
               <h2
                 id="contact-info-heading"
-                className="text-lg font-medium text-gray-900"
+                className="text-lg font-medium text-base-content"
               >
                 Contact information
               </h2>
@@ -212,7 +212,7 @@ const CheckoutPage = () => {
               <div className="mt-6">
                 <label
                   htmlFor="email-address"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-base-content"
                 >
                   Email address
                 </label>
@@ -220,7 +220,7 @@ const CheckoutPage = () => {
                   <input
                     type="email"
                     name="email"
-                    className="input input-bordered w-full"
+                    className="input input-primary input-bordered w-full"
                   />
                 </div>
               </div>
@@ -229,7 +229,7 @@ const CheckoutPage = () => {
             <section aria-labelledby="payment-heading" className="mt-10">
               <h2
                 id="payment-heading"
-                className="text-lg font-medium text-gray-900"
+                className="text-lg font-medium text-base-content"
               >
                 Payment details
               </h2>
@@ -238,7 +238,7 @@ const CheckoutPage = () => {
                 <div className="col-span-3 sm:col-span-4">
                   <label
                     htmlFor="name-on-card"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-base-content"
                   >
                     Name on card
                   </label>
@@ -246,7 +246,7 @@ const CheckoutPage = () => {
                     <input
                       type="text"
                       name="name-on-card"
-                      className="input input-bordered w-full"
+                      className="input input-primary input-bordered w-full"
                     />
                   </div>
                 </div>
@@ -254,7 +254,7 @@ const CheckoutPage = () => {
                 <div className="col-span-3 sm:col-span-4">
                   <label
                     htmlFor="card-number"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-base-content"
                   >
                     Card number
                   </label>
@@ -262,7 +262,7 @@ const CheckoutPage = () => {
                     <input
                       type="text"
                       name="card-number"
-                      className="input input-bordered w-full"
+                      className="input input-primary input-bordered w-full"
                     />
                   </div>
                 </div>
@@ -270,7 +270,7 @@ const CheckoutPage = () => {
                 <div className="col-span-2 sm:col-span-3">
                   <label
                     htmlFor="expiration-date"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-base-content"
                   >
                     Expiration date (MM/YY)
                   </label>
@@ -280,7 +280,7 @@ const CheckoutPage = () => {
                       name="expiration-date"
                       id="expiration-date"
                       autoComplete="cc-exp"
-                      className="input input-bordered w-full"
+                      className="input input-primary input-bordered w-full"
                     />
                   </div>
                 </div>
@@ -288,7 +288,7 @@ const CheckoutPage = () => {
                 <div>
                   <label
                     htmlFor="cvc"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-base-content"
                   >
                     CVC
                   </label>
@@ -298,7 +298,7 @@ const CheckoutPage = () => {
                       name="cvc"
                       id="cvc"
                       autoComplete="csc"
-                      className="input input-bordered w-full"
+                      className="input input-primary input-bordered w-full"
                     />
                   </div>
                 </div>
@@ -308,7 +308,7 @@ const CheckoutPage = () => {
             <section aria-labelledby="shipping-heading" className="mt-10">
               <h2
                 id="shipping-heading"
-                className="text-lg font-medium text-gray-900"
+                className="text-lg font-medium text-base-content"
               >
                 Shipping address
               </h2>
@@ -317,7 +317,7 @@ const CheckoutPage = () => {
                 <div className="sm:col-span-3">
                   <label
                     htmlFor="company"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-base-content"
                   >
                     Company
                   </label>
@@ -326,7 +326,7 @@ const CheckoutPage = () => {
                       type="text"
                       id="company"
                       name="company"
-                      className="input input-bordered w-full"
+                      className="input input-primary input-bordered w-full"
                     />
                   </div>
                 </div>
@@ -334,7 +334,7 @@ const CheckoutPage = () => {
                 <div className="sm:col-span-3">
                   <label
                     htmlFor="address"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-base-content"
                   >
                     Address
                   </label>
@@ -344,7 +344,7 @@ const CheckoutPage = () => {
                       id="address"
                       name="address"
                       autoComplete="street-address"
-                      className="input input-bordered w-full"
+                      className="input input-primary input-bordered w-full"
                     />
                   </div>
                 </div>
@@ -352,7 +352,7 @@ const CheckoutPage = () => {
                 <div className="sm:col-span-3">
                   <label
                     htmlFor="apartment"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-base-content"
                   >
                     Apartment, suite, etc.
                   </label>
@@ -361,7 +361,7 @@ const CheckoutPage = () => {
                       type="text"
                       id="apartment"
                       name="apartment"
-                      className="input input-bordered w-full"
+                      className="input input-primary input-bordered w-full"
                     />
                   </div>
                 </div>
@@ -369,7 +369,7 @@ const CheckoutPage = () => {
                 <div>
                   <label
                     htmlFor="city"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-base-content"
                   >
                     City
                   </label>
@@ -379,7 +379,7 @@ const CheckoutPage = () => {
                       id="city"
                       name="city"
                       autoComplete="address-level2"
-                      className="input input-bordered w-full"
+                      className="input input-primary input-bordered w-full"
                     />
                   </div>
                 </div>
@@ -387,7 +387,7 @@ const CheckoutPage = () => {
                 <div>
                   <label
                     htmlFor="region"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-base-content"
                   >
                     State / Province
                   </label>
@@ -397,7 +397,7 @@ const CheckoutPage = () => {
                       id="region"
                       name="region"
                       autoComplete="address-level1"
-                      className="input input-bordered w-full"
+                      className="input input-primary input-bordered w-full"
                     />
                   </div>
                 </div>
@@ -405,7 +405,7 @@ const CheckoutPage = () => {
                 <div>
                   <label
                     htmlFor="postal-code"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-base-content"
                   >
                     Postal code
                   </label>
@@ -415,7 +415,7 @@ const CheckoutPage = () => {
                       id="postal-code"
                       name="postal-code"
                       autoComplete="postal-code"
-                      className="input input-bordered w-full"
+                      className="input input-primary input-bordered w-full"
                     />
                   </div>
                 </div>
@@ -425,7 +425,7 @@ const CheckoutPage = () => {
             <section aria-labelledby="billing-heading" className="mt-10">
               <h2
                 id="billing-heading"
-                className="text-lg font-medium text-gray-900"
+                className="text-lg font-medium text-base-content"
               >
                 Billing information
               </h2>
@@ -435,13 +435,12 @@ const CheckoutPage = () => {
                   id="same-as-shipping"
                   name="same-as-shipping"
                   type="checkbox"
-                  defaultChecked
                   className="checkbox checkbox-primary"
                 />
                 <div className="ml-2">
                   <label
                     htmlFor="same-as-shipping"
-                    className="text-sm font-medium text-gray-900"
+                    className="text-sm font-medium text-base-content"
                   >
                     Same as shipping information
                   </label>

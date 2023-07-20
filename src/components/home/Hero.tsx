@@ -50,7 +50,7 @@ export const HeroSection = () => {
 
   return (
     <div>
-      <div className="bg-base-100 mb-48">
+      <div className="bg-base-100 bg-opacity-40 mb-48">
         <div className="mx-auto max-w-2xl px-4 py-6 sm:px-6 sm:py-7 lg:max-w-7xl lg:px-8">
           <h2 className="text-2xl font-bold tracking-tight text-base-content">
             Customers also purchased
