@@ -1,9 +1,12 @@
 import client from "../client";
 import axios, { AxiosResponse } from "axios";
-import { ProductType } from "../../types/ProductType";
+import { ProductType, PostProductType } from "../../types/ProductType";
 
 interface ProductListResponse extends AxiosResponse {
   data: ProductType;
+}
+interface PostProductResponse extends AxiosResponse {
+  data: PostProductType;
 }
 
 // Get List Product
@@ -26,7 +29,6 @@ export const getListProducts = async () => {
 // Create Product
 export const createProducts = async ({
   name,
-  href,
   imageSrc,
   imageAlt,
   price,
@@ -34,24 +36,14 @@ export const createProducts = async ({
   size,
   inStock,
   leadTime,
-}: {
-  name: string;
-  href?: string;
-  imageSrc: string;
-  imageAlt: string;
-  price: number;
-  color: string;
-  size: string;
-  inStock: boolean;
-  leadTime?: string;
-}) => {
+}: PostProductType) => {
   try {
-    const res: AxiosResponse = await client<ProductListResponse>({
+    const res: AxiosResponse = await client<PostProductResponse>({
       url: "/api/v1/ProductList",
       method: "post",
       data: {
         name,
-        href,
+        href: '#',
         imageSrc,
         imageAlt,
         price,

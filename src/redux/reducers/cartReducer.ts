@@ -23,7 +23,7 @@ export const cartReducer = createSlice({
     },
     addTotalItem: (
       state,
-      action: PayloadAction<{ productId: number; quantity: number }>
+      action: PayloadAction<{ productId?: number; quantity: number }>
     ) => {
       const { productId, quantity } = action.payload;
       const existingItem = state.totalItems.find(

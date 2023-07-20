@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, CategoryPage, CheckoutPage } from "./pages";
+import { HomePage, CategoryPage, CheckoutPage, AddProduct } from "./pages";
 import { useAppSelector } from "./hooks/reduxHook";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/category" element={<CategoryPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/product/add" element={<AddProduct />} />
       </Routes>
     </div>
   );

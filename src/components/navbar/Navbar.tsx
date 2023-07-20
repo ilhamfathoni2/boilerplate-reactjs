@@ -57,16 +57,20 @@ export const Navbar = () => {
             <div className="flex h-16 justify-between">
               <div className="flex">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-8 w-auto lg:hidden"
-                    src={logo}
-                    alt="logo"
-                  />
-                  <img
-                    className="hidden h-8 w-auto lg:block"
-                    src={logo}
-                    alt="logo"
-                  />
+                  <a href="/">
+                    <img
+                      className="block h-8 w-auto lg:hidden"
+                      src={logo}
+                      alt="logo"
+                    />
+                  </a>
+                  <a href="/">
+                    <img
+                      className="hidden h-8 w-auto lg:block"
+                      src={logo}
+                      alt="logo"
+                    />
+                  </a>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8 sm:items-center">
                   {/* Current: "border-primary text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
@@ -81,6 +85,12 @@ export const Navbar = () => {
                     className="inline-flex items-center hover:border-b-2 hover:border-primary focus:border-primary text-base-content px-1 pt-1 text-sm font-medium"
                   >
                     Transaction
+                  </a>
+                  <a
+                    href="/product/add"
+                    className="inline-flex items-center hover:border-b-2 hover:border-primary focus:border-primary text-base-content px-1 pt-1 text-sm font-medium"
+                  >
+                    Add Product
                   </a>
                   <div className="dropdown dropdown-bottom dropdown-end">
                     <label
@@ -235,6 +245,13 @@ export const Navbar = () => {
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content"
               >
                 Transaction
+              </Disclosure.Button>
+              <Disclosure.Button
+                as="a"
+                href="/product/add"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content"
+              >
+                Add Product
               </Disclosure.Button>
               <Disclosure.Button
                 as="div"
