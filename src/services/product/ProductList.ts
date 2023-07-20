@@ -62,3 +62,20 @@ export const createProducts = async ({
     }
   }
 };
+
+// Delete Product
+export const deleteProducts = async (id: number) => {
+  try {
+    const res: AxiosResponse = await client<PostProductResponse>({
+      url: `/api/v1/ProductList/${id}`,
+      method: "delete",
+    });
+    return res;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      return error?.response ?? null;
+    } else {
+      return null;
+    }
+  }
+};

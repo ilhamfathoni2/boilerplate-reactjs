@@ -93,10 +93,10 @@ export const Navbar = () => {
                     Add Product
                   </a>
                   <a
-                    href="/product/delete"
+                    href="/product/edit"
                     className="inline-flex items-center hover:border-b-2 hover:border-primary focus:border-primary text-base-content px-1 pt-1 text-sm font-medium"
                   >
-                    Delete Product
+                    Edit Product
                   </a>
                   <div className="dropdown dropdown-bottom dropdown-end">
                     <label
@@ -261,10 +261,10 @@ export const Navbar = () => {
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="/product/delete"
+                href="/product/edit"
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content"
               >
-                Delete Product
+                Edit Product
               </Disclosure.Button>
               <Disclosure.Button
                 as="div"

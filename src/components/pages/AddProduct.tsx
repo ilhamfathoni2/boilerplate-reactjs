@@ -1,8 +1,8 @@
-import { Navbar } from "../components/navbar/Navbar";
-import { PostProductType } from "../types/ProductType";
+import { Navbar } from "../navbar/Navbar";
+import { PostProductType } from "../../types/ProductType";
 import { FormikProps, useFormik } from "formik";
 import * as Yup from "yup";
-import { createProducts } from "../services/product/ProductList";
+import { createProducts } from "../../services/product/ProductList";
 import { useNavigate } from "react-router-dom";
 
 export default function AddProduct() {

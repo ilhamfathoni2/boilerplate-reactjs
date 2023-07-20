@@ -1,10 +1,10 @@
 import { useEffect, Fragment } from "react";
 import { ChevronRightIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Popover, Transition } from "@headlessui/react";
-import { useAppSelector, useAppDispatch } from "../hooks/reduxHook";
-import { calculateTotalPrice } from "../redux/reducers/cartReducer";
-import { formatCurrency } from "../utils/formatCurrency";
-import { logo } from "../assets/image";
+import { useAppSelector, useAppDispatch } from "../../hooks/reduxHook";
+import { calculateTotalPrice } from "../../redux/reducers/cartReducer";
+import { formatCurrency } from "../../utils/formatCurrency";
+import { logo } from "../../assets/image";
 
 const steps = [
   { name: "Billing Information", href: "#", status: "current" },
