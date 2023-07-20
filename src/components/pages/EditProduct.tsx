@@ -3,6 +3,7 @@ import { formatCurrency } from "../../utils/formatCurrency";
 import { getListProducts } from "../../services/product/ProductList";
 import { ProductType } from "../../types/ProductType";
 import { Navbar } from "../navbar/Navbar";
+import { Footer } from "../footer/footer";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { deleteProducts } from "../../services/product/ProductList";
 import { Toast } from "../toast/toast";
@@ -111,6 +112,7 @@ export default function EditProduct() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
