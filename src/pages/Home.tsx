@@ -4,7 +4,7 @@ import { Footer } from "../components/footer/footer";
 
 import { Navbar } from "../components/navbar/Navbar";
 
-function HomePage() {
+export default function HomePage() {
   return (
     <>
       <Navbar />
@@ -14,5 +14,3 @@ function HomePage() {
     </>
   );
 }
-
-export default HomePage;

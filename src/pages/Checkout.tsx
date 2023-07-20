@@ -11,7 +11,7 @@ const steps = [
   { name: "Confirmation", href: "#", status: "upcoming" },
 ];
 
-const CheckoutPage = () => {
+export default function CheckoutPage() {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.cartItems);
   const totalItems = useAppSelector((state) => state.cart.totalItems);
@@ -53,11 +53,7 @@ const CheckoutPage = () => {
           <div className="relative flex justify-end sm:justify-center">
             <a href="/" className="absolute left-0 top-1/2 -mt-4">
               <span className="sr-only">Your Company</span>
-              <img
-                src={logo}
-                alt="logo"
-                className="h-8 w-auto"
-              />
+              <img src={logo} alt="logo" className="h-8 w-auto" />
             </a>
             <nav aria-label="Progress" className="hidden sm:block">
               <ol className="flex space-x-4">
@@ -118,8 +114,12 @@ const CheckoutPage = () => {
                   />
                   <div className="flex-auto space-y-1">
                     <h3>{product.name}</h3>
-                    <p className="text-base-content text-opacity-50">{product.color}</p>
-                    <p className="text-base-content text-opacity-50">{product.size}</p>
+                    <p className="text-base-content text-opacity-50">
+                      {product.color}
+                    </p>
+                    <p className="text-base-content text-opacity-50">
+                      {product.size}
+                    </p>
                   </div>
                   <div className="flex flex-col items-end">
                     <p className="text-sm text-base-content opacity-75">
@@ -143,7 +143,9 @@ const CheckoutPage = () => {
 
               <div className="flex items-center justify-between border-t border-base-content pt-6">
                 <dt className="text-base-content">Total</dt>
-                <dd className="text-primary text-base">{formatCurrency(totalPrice)}</dd>
+                <dd className="text-primary text-base">
+                  {formatCurrency(totalPrice)}
+                </dd>
               </div>
             </dl>
 
@@ -461,6 +463,4 @@ const CheckoutPage = () => {
       </main>
     </div>
   );
-};
-
-export default CheckoutPage;
+}

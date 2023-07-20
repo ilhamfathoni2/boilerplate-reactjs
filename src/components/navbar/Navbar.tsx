@@ -92,6 +92,12 @@ export const Navbar = () => {
                   >
                     Add Product
                   </a>
+                  <a
+                    href="/product/delete"
+                    className="inline-flex items-center hover:border-b-2 hover:border-primary focus:border-primary text-base-content px-1 pt-1 text-sm font-medium"
+                  >
+                    Delete Product
+                  </a>
                   <div className="dropdown dropdown-bottom dropdown-end">
                     <label
                       tabIndex={0}
@@ -252,6 +258,13 @@ export const Navbar = () => {
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content"
               >
                 Add Product
+              </Disclosure.Button>
+              <Disclosure.Button
+                as="a"
+                href="/product/delete"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content"
+              >
+                Delete Product
               </Disclosure.Button>
               <Disclosure.Button
                 as="div"
