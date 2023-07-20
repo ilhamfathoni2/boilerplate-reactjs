@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Navbar } from "../navbar/Navbar";
 import { PostProductType } from "../../types/ProductType";
 import { FormikProps, useFormik } from "formik";
@@ -7,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function AddProduct() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const formik: FormikProps<PostProductType> = useFormik<PostProductType>({
     initialValues: {
@@ -38,12 +40,15 @@ export default function AddProduct() {
 
   const handleSubmit = async (values: PostProductType) => {
     try {
+      setLoading(true);
       const response = await createProducts(values);
       console.log("response: ", response);
       if (response?.status === 201) {
         navigate("/");
       }
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.log("-- error submit product: ", error);
     }
   };
@@ -231,9 +236,15 @@ export default function AddProduct() {
               ) : null}
             </div>
 
-            <button type="submit" className="btn btn-primary btn-block my-5">
-              Submit
-            </button>
+            {loading ? (
+              <button type="button" className="btn btn-disabled btn-block my-5">
+                Submit
+              </button>
+            ) : (
+              <button type="submit" className="btn btn-primary btn-block my-5">
+                Submit
+              </button>
+            )}
           </form>
         </div>
       </div>
