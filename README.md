@@ -1,12 +1,7 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`, `npm run prod`, `npm run staging`
+To run a boilerplate application you can use the environment you want, namely prod, dev and staging, so you need to create these three files before running
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
