@@ -11,6 +11,7 @@ import { Toast } from "../toast/toast";
 export default function EditProduct() {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [msg, setMsg] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const getList = async () => {
@@ -31,18 +32,23 @@ export default function EditProduct() {
       setLoading(true);
       const response = await deleteProducts(id);
       if (response?.status === 200) {
+        getList();
         setMsg("Successfully removed the product");
       } else {
         setMsg("Failed removed the product");
       }
-      setTimeout(() => {
-        window.location.reload();
-      }, 800);
+      setShowToast(true);
       setLoading(false);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
     } catch (error) {
       setLoading(false);
       setMsg("Failed removed the product");
-      window.location.reload();
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
       console.log("-- error delete product: ", error);
     }
   };
@@ -54,7 +60,7 @@ export default function EditProduct() {
   return (
     <div>
       <Navbar />
-      {msg !== "" && <Toast text={msg} />}
+      {showToast && <Toast text={msg} />}
       <div className="bg-base-100 bg-opacity-40 mb-48">
         <div className="mx-auto max-w-2xl px-4 py-6 sm:px-6 sm:py-7 lg:max-w-7xl lg:px-8">
           <h2 className="text-2xl font-bold tracking-tight text-base-content">
@@ -88,24 +94,21 @@ export default function EditProduct() {
                       {formatCurrency(product.price)}
                     </p>
                   </div>
-                  {loading ? (
-                    <div className="flex justify-between mt-2">
-                      <button className="btn btn-sm btn-disabled">Edit</button>
-                      <button className="btn btn-sm btn-disabled">
-                        <TrashIcon height={20} />
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="flex justify-between mt-2">
-                      <button className="btn btn-sm btn-warning">Edit</button>
-                      <button
-                        className="btn btn-sm btn-error"
-                        onClick={() => handleDelete(product.id)}
-                      >
-                        <TrashIcon height={20} />
-                      </button>
-                    </div>
-                  )}
+                  <div className="flex justify-between mt-2">
+                    <button
+                      disabled={loading}
+                      className="btn btn-sm btn-warning"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      disabled={loading}
+                      className="btn btn-sm btn-error"
+                      onClick={() => handleDelete(product.id)}
+                    >
+                      <TrashIcon height={20} />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
