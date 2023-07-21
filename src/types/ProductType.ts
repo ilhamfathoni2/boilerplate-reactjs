@@ -29,3 +29,13 @@ export interface PostProductType {
   leadTime?: string;
   qty?: number;
 }
+export interface PutProductType {
+  id?: number;
+  name?: string;
+  imageSrc?: string;
+  price: number;
+  color?: string;
+  size?: string;
+  inStock?: boolean;
+  leadTime?: string;
+}

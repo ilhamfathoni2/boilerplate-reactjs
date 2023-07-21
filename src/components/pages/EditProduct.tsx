@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { formatCurrency } from "../../utils/formatCurrency";
-import { getListProducts } from "../../services/product/ProductList";
+import { getListProducts } from "../../services/product/ProductService";
 import { ProductType } from "../../types/ProductType";
 import { Navbar } from "../navbar/Navbar";
 import { Footer } from "../footer/footer";
 import { TrashIcon } from "@heroicons/react/24/outline";
-import { deleteProducts } from "../../services/product/ProductList";
+import { deleteProducts } from "../../services/product/ProductService";
 import { Toast } from "../toast/toast";
 
 export default function EditProduct() {
@@ -95,12 +95,12 @@ export default function EditProduct() {
                     </p>
                   </div>
                   <div className="flex justify-between mt-2">
-                    <button
-                      disabled={loading}
+                    <a
+                      href={`/product/edit/${product.id}`}
                       className="btn btn-sm btn-warning"
                     >
                       Edit
-                    </button>
+                    </a>
                     <button
                       disabled={loading}
                       className="btn btn-sm btn-error"

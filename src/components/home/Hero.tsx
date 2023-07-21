@@ -4,7 +4,7 @@ import { useAppSelector, useAppDispatch } from "../../hooks/reduxHook";
 import { addToCart, addTotalItem } from "../../redux/reducers/cartReducer";
 import { ProductType } from "../../types/ProductType";
 import { formatCurrency } from "../../utils/formatCurrency";
-import { getListProducts } from "../../services/product/ProductList";
+import { getListProducts } from "../../services/product/ProductService";
 
 export const HeroSection = () => {
   const dispatch = useAppDispatch();

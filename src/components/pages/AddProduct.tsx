@@ -3,7 +3,7 @@ import { Navbar } from "../navbar/Navbar";
 import { PostProductType } from "../../types/ProductType";
 import { FormikProps, useFormik } from "formik";
 import * as Yup from "yup";
-import { createProducts } from "../../services/product/ProductList";
+import { createProducts } from "../../services/product/ProductService";
 import { useNavigate } from "react-router-dom";
 
 export default function AddProduct() {
@@ -48,7 +48,6 @@ export default function AddProduct() {
       }
       setLoading(false);
     } catch (error) {
-      setLoading(false);
       console.log("-- error submit product: ", error);
     }
   };
