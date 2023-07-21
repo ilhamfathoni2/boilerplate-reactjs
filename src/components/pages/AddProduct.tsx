@@ -235,16 +235,16 @@ export default function AddProduct() {
                 </label>
               ) : null}
             </div>
-
-            {loading ? (
-              <button type="button" className="btn btn-disabled btn-block my-5">
-                Submit
-              </button>
-            ) : (
-              <button type="submit" className="btn btn-primary btn-block my-5">
-                Submit
-              </button>
-            )}
+            <button
+              type="submit"
+              className="btn btn-primary btn-block my-5"
+              disabled={loading}
+            >
+              Submit
+              {loading && (
+                <span className="loading loading-spinner loading-sm"></span>
+              )}
+            </button>
           </form>
         </div>
       </div>

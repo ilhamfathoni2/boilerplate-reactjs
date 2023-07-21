@@ -1,7 +1,7 @@
 {
   "name": "boilerplate-react-js",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "scripts": {
     "dev": "node setup.env.js --env dev && react-scripts start",
     "staging": "node setup.env.js --env staging && react-scripts start",
