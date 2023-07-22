@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -46,7 +46,6 @@ const listTheme = [
 
 export const Navbar = () => {
   const dispatch = useAppDispatch();
-  const [show, setShow] = useState(false);
   const totalItems = useAppSelector((state) => state.cart.totalItems);
 
   return (
@@ -98,28 +97,12 @@ export const Navbar = () => {
                   >
                     Edit Product
                   </a>
-                  <div className="dropdown dropdown-bottom dropdown-end">
-                    <label
-                      tabIndex={0}
-                      className="m-1 cursor-pointer inline-flex items-center hover:border-b-2 hover:border-primary focus:border-primary text-base-content px-1 pt-1 text-sm font-medium"
-                    >
-                      Theme
-                    </label>
-                    <ul
-                      tabIndex={0}
-                      className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-                    >
-                      <div className="overflow-scroll scroll-smooth max-h-48">
-                        {listTheme.map((theme, index) => (
-                          <li key={index}>
-                            <button onClick={() => dispatch(setTheme(theme))}>
-                              {theme}
-                            </button>
-                          </li>
-                        ))}
-                      </div>
-                    </ul>
-                  </div>
+                  <label
+                    htmlFor="my_modal_7"
+                    className="inline-flex items-center hover:border-b-2 hover:border-primary focus:border-primary text-base-content px-1 pt-1 text-sm font-medium"
+                  >
+                    Theme
+                  </label>
                 </div>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:items-center">
@@ -248,44 +231,31 @@ export const Navbar = () => {
               <Disclosure.Button
                 as="a"
                 href="/"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-base-content hover:border-base-content hover:bg-base-100"
               >
                 Transaction
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="/product/add"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-base-content hover:border-base-content hover:bg-base-100"
               >
                 Add Product
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="/product/edit"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-base-content hover:border-base-content hover:bg-base-100"
               >
                 Edit Product
               </Disclosure.Button>
-              <Disclosure.Button
-                as="div"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content"
+              <label
+                htmlFor="my_modal_7"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-base-content hover:border-base-content hover:bg-base-100"
               >
-                <button onClick={() => setShow((prev) => !prev)}>Theme</button>
-                {show && (
-                  <ul className="z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <div className="overflow-scroll scroll-smooth max-h-48">
-                      {listTheme.map((theme, index) => (
-                        <li key={index}>
-                          <button onClick={() => dispatch(setTheme(theme))}>
-                            {theme}
-                          </button>
-                        </li>
-                      ))}
-                    </div>
-                  </ul>
-                )}
-              </Disclosure.Button>
-              <div className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-base-content hover:bg-base-100 hover:text-base-content">
+                Theme
+              </label>
+              <div className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-base-content hover:border-base-content hover:bg-base-100">
                 <label
                   htmlFor="my_modal_6"
                   className="group flex items-center p-2 cursor-pointer mr-2"
@@ -374,6 +344,43 @@ export const Navbar = () => {
                 ✕
               </label>
               <Carts />
+            </div>
+          </div>
+
+          {/* Modal Theme Mobile */}
+          <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+          <div className="modal">
+            <div className="modal-box">
+              <label
+                htmlFor="my_modal_7"
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              >
+                ✕
+              </label>
+              <ul className="mt-4">
+                {listTheme.map((theme, index) => (
+                  <li key={index}>
+                    <button
+                      onClick={() => dispatch(setTheme(theme))}
+                      className="relative w-full p-3 bg-base-content bg-opacity-10 rounded-md my-2"
+                    >
+                      <span className="absolute inset-0 hover:border-2 hover:border-base-content rounded-md"></span>
+                      <div className="flex justify-between items-start">
+                        <span className="text-sm font-bold">{theme}</span>
+                        <div
+                          className="flex items-center gap-2 bg-transparent"
+                          data-theme={theme}
+                        >
+                          <span className="w-2 h-4 rounded-sm bg-primary"></span>
+                          <span className="w-2 h-4 rounded-sm bg-secondary"></span>
+                          <span className="w-2 h-4 rounded-sm bg-accent"></span>
+                          <span className="w-2 h-4 rounded-sm bg-neutral"></span>
+                        </div>
+                      </div>
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </>
