@@ -13,7 +13,6 @@ Welcome to the Boilerplate React.JS, a comprehensive starter template designed t
   - [Installation](#installation)
   - [Usage](#usage)
   - [Environment Variables](#environment-variables)
-  - [Available Scripts](#available-scripts)
   - [Custom Hooks](#custom-hooks)
   - [Redux Store](#redux-store)
   - [Services](#services)
