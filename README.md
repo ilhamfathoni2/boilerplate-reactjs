@@ -283,10 +283,7 @@ function App() {
   const theme = useAppSelector((state) => state.themes.theme);
   return (
     <div data-theme={theme || "light"}>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/category" element={<CategoryPage />} />
-      </Routes>
+      <AppRoute />
     </div>
   );
 }
@@ -308,12 +305,5 @@ Description of utility functions used in the project.
 
 Explanation of different types/interfaces used throughout the project.
 
-## Contributing
-
-Guidelines for contributing to the project.
-
-## License
-
-Information about the project's license (e.g., MIT, Apache, etc.).
 
 Feel free to customize the README.md according to your project's specific details and requirements. Remember to include all the necessary information to help others understand and use your React.js project effectively.
