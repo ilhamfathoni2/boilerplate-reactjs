@@ -17,7 +17,7 @@ These commands will build the project and start the server, making your applicat
 
 ## Table of Contents
 
-- [Project Name](#project-name)
+- [Boilerplate React.Js](#project-name)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Folder Structure](#folder-structure)
