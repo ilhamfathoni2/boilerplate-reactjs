@@ -1,4 +1,7 @@
 # Boilerplate React.Js
+## Introduction
+
+Welcome to the Boilerplate React.JS, a comprehensive starter template designed to accelerate your React project development. This boilerplate comes packed with essential features to streamline your workflow, providing you with a solid foundation to build powerful and visually appealing applications.
 
 ## Table of Contents
 
@@ -18,10 +21,6 @@
   - [Types](#types)
   - [Contributing](#contributing)
   - [License](#license)
-
-## Introduction
-
-Welcome to the Boilerplate React.JS, a comprehensive starter template designed to accelerate your React project development. This boilerplate comes packed with essential features to streamline your workflow, providing you with a solid foundation to build powerful and visually appealing applications.
 
 ## Folder Structure
 
