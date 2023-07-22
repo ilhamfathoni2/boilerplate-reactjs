@@ -42,49 +42,51 @@ A brief introduction to your React.js project and its purpose.
 
 ```plaintext
 boilerplate-react-js/
-  |----public/
-  |----src/
-            |----assets/
-                       |----image/
-                       |----index.ts
-            |----components/
-                       |----cart/
-                                |----Cart.tsx
-                       |----otherComponent/
-                                |----other.tsx
-                       |----pages/
-                                |----Home.tsx
-                                |----index.ts
-            |----hooks/
-                       |----reduxHooks.ts
-            |----redux/
-                       |----reducers/
-                                |----cartReducer.ts
-                                |----otherReducer.ts
-                       |----stores.ts
-            |----services/
-                       |----product/
-                                |----productServices.ts
-                       |----client.ts
-            |----types/
-                       |----ProductType.ts
-                       |----OtherType.ts
-            |----utils/
-                       |----formatCurrency.ts
-                       |----otherUtils.ts
-            |----App.tsx
-            |----App.css
-            |----index.tsx
-            |----index.css
-            |----other....
-    |----.env
-    |----.env.prod
-    |----.env.dev
-    |----.env.staging
-    |----.setup.env.js
-    |----tailwind.config.js
-    |----tsconfig.json
-    |----package.json
+│
+├── public/
+├── src/
+│   ├── assets/
+│   │   ├── image/
+│   │   └── index.ts
+│   ├── components/
+│   │   ├── cart/
+│   │   │   └── Cart.tsx
+│   │   ├── otherComponent/
+│   │   │   └── other.tsx
+│   │   └── pages/
+│   │       ├── Home.tsx
+│   │       └── index.ts
+│   ├── hooks/
+│   │   └── reduxHooks.ts
+│   ├── redux/
+│   │   ├── reducers/
+│   │   │   ├── cartReducer.ts
+│   │   │   └── otherReducer.ts
+│   │   └── stores.ts
+│   ├── services/
+│   │   └── product/
+│   │       └── productServices.ts
+│   │   └── client.ts
+│   ├── types/
+│   │   ├── ProductType.ts
+│   │   └── OtherType.ts
+│   ├── utils/
+│   │   ├── formatCurrency.ts.
+│   │   └── otherUtils.ts
+│   ├── App.tsx
+│   ├── App.css
+│   ├── index.tsx
+│   ├── index.css
+│   └── other....
+│
+├── .env
+├── .env.prod
+├── .env.dev
+├── .env.staging
+├── .setup.env.js
+├── tailwind.config.js
+├── tsconfig.json
+└── package.json
 ```
 
 ## Features
