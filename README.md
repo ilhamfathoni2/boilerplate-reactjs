@@ -92,33 +92,98 @@ boilerplate-react-js/
 
 ## Installation
 
-**To run this project**, first, make sure you have installed all the required dependencies by running **npm install** in the project directory. After the installation is complete, you can start the development server using the command **npm run dev**.
+## Installation
 
-```
-npm install
-```
-```
-npm run dev
-```
-If you want to run the project in production mode, use the command **npm run prod** Similarly, for the staging environment, use **npm run staging**.
+To get started with the Boilerplate React.JS, follow these simple steps:
 
-These commands will build the project and start the server, making your application accessible through the specified environment.
+1. Clone this repository to your local machine by running the following command:
+
+   ```
+   git clone https://github.com/ilhamfathoni2/boilerplate-reactjs.git
+   ```
+
+2. Navigate to the project directory and ensure you have all the required dependencies installed by running:
+
+   ```
+   npm install
+   ```
+
+Now you're all set! You have successfully installed the Boilerplate React.JS on your local machine. Start exploring the features and begin building your exceptional React applications. Happy coding!
 
 ## Usage
 
-How to use your React.js project, including any commands or configurations.
+## Usage
+
+After completing the installation process, you need to create three environment files: `.env`, `.env.prod`, and `.env.staging` to enable environment selection during application execution. These environment files are used to manage different configurations based on the environment.
+
+To run the application, use the following command:
+
+```
+npm run dev
+```
+
+By default, the `dev` command is used to start the development environment. However, you can also switch to other environments such as `prod` or `staging` by using the respective commands:
+
+```
+npm run prod
+```
+
+```
+npm run staging
+```
 
 ## Environment Variables
 
-Explanation of environment variables and their usage.
+To manage different configurations for your React application based on different environments (development, production, and staging), you can create three environment files: `.env`, `.env.prod`, and `.env.staging`.
 
-## Available Scripts
+In each environment file, it is essential to prefix your variables with `REACT_APP_` to make them accessible to the `process.env` object in your application.
 
-- List of available scripts to run in the project.
+For example, in your `.env` file:
+
+```
+REACT_APP_BASE_API=https://api.com
+```
+
+To use this variable in your application, you can access it like this:
+
+```jsx
+const apiUrl = process.env.REACT_APP_BASE_API;
+```
+
+The reason we use three environment files is to facilitate configuration management when running the application in different environments. The `setup.env.js` script is responsible for copying the selected environment file (`.env`, `.env.prod`, or `.env.staging`) into the `.env` file. This allows you to easily switch between different configurations without manually editing the `.env` file every time.
+
+By using this approach, you can ensure that your React application behaves correctly and connects to the appropriate APIs or backend services based on the selected environment. This makes it easier to manage and deploy your application to different environments with the appropriate configurations.
+
+Remember to keep sensitive information, such as API keys or secrets, secure and do not commit them to your version control system. Use environment files for managing sensitive data and consider using a secret management solution if required.
+
+Enjoy the flexibility and simplicity of managing your environment configurations with the Boilerplate React.JS. Happy coding!
+
 
 ## Custom Hooks
 
-Description of any custom hooks used in the project.
+This project includes custom hooks that provide type-safe interactions with Redux state and actions. These hooks are designed to be used throughout your application, replacing the standard `useDispatch` and `useSelector` from React Redux with typed versions.
+
+### `useAppDispatch`
+
+This hook returns a typed version of the `useDispatch` hook, which allows you to dispatch actions with type safety. Instead of using the regular `useDispatch`, you can use `useAppDispatch` like this:
+
+```javascript
+import { useAppDispatch } from './hooks/reduxHook';
+
+const dispatch = useAppDispatch();
+```
+
+### `useAppSelector`
+
+Similarly, this hook provides a typed version of `useSelector`, which allows you to select data from the Redux state with type safety. To use it, import `useAppSelector` like this:
+
+```javascript
+import { useAppSelector } from './hooks/reduxHook';
+
+const selectedData = useAppSelector((state) => state.someSlice.data);
+```
+
+These custom hooks are just examples of how you can handle Redux in your application. **You can create your own custom hooks in the `hooks` folder to encapsulate and reuse logic that involves Redux state and actions.** This approach promotes code organization, reusability, and maintainability.
 
 ## Redux Store
 
