@@ -106,9 +106,7 @@ To get started with the Boilerplate React.JS, follow these simple steps:
    npm install
    ```
 
-Now you're all set! You have successfully installed the Boilerplate React.JS on your local machine. Start exploring the features and begin building your exceptional React applications. Happy coding!
-
-## Usage
+Now you're all set! You have successfully installed the Boilerplate React.JS on your local machine. Start exploring the features and begin building your exceptional React applications.
 
 ## Usage
 
