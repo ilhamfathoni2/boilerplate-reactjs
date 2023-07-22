@@ -74,21 +74,20 @@ boilerplate-react-js/
 ```
 
 ## Features
-1. **API Integration for Product Management**
+This boilerplate React.js project comes with several main features:
+1. **API Integration for Product CRUD:** The project includes integration with an API to perform CRUD operations for products.
 
-   The boilerplate includes API integration for product management, allowing you to perform CRUD operations seamlessly. With this feature, you can easily fetch, create, update, and delete products from your application.
+2. **Redux with Redux Persist for Cart Handling:** Utilizes Redux to manage the cart data, and Redux Persist ensures that the cart data persists even after refreshing the application.
 
-2. **Redux State Management with Persistence**
+3. **Dynamic Theme Switching with DaisyUI:** Allows users to switch between different UI themes using DaisyUI, and you can even customize the themes in the `tailwind.config.js` file.
 
-   Utilizing Redux, the boilerplate provides a state management solution for handling shopping cart data. Redux Persist ensures that the cart data remains intact even after the application is reloaded, providing a smooth and uninterrupted shopping experience for your users.
+4. **TailwindCSS and DaisyUI Integration:** Comes with various components integrated with TailwindCSS and DaisyUI to create stunning user interfaces.
 
-3. **Dynamic UI Theming with DaisyUI**
+5. **Environment Selection:** Enables you to run the application in different environments (development, production, or staging) by creating three environment files: `.env`, `.env.prod`, and `.env.staging`. The selected environment's variables will be read by `process.env.REACT_APP...` during application runtime.
 
-   DaisyUI is integrated into the boilerplate to facilitate dynamic UI theming. You can easily switch between pre-defined themes or create your own custom themes in the `tailwind.config.js` file. This feature allows you to customize the UI appearance to match your brand's identity.
+6. **Custom Hooks for Redux Handling:** Offers custom hooks like `useAppDispatch` and `useAppSelector` to handle Redux state and actions in a type-safe manner. You can create additional custom hooks in the `hooks` folder to further encapsulate and reuse logic related to Redux.
 
-4. **Pre-built Components for Stunning UI**
-
-   The boilerplate comes with a collection of pre-built components that are seamlessly integrated with Tailwind CSS and DaisyUI. These components help you create visually appealing user interfaces with ease, saving you development time and effort.
+With this feature-rich boilerplate, you can kickstart your React.js projects and enjoy a productive development experience.
 
 ## Installation
 
