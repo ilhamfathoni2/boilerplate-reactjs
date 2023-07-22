@@ -5,21 +5,25 @@ import { addToCart, addTotalItem } from "../../redux/reducers/cartReducer";
 import { ProductType } from "../../types/ProductType";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { getListProducts } from "../../services/product/ProductService";
+import { LoadingCard } from "../loading/LoadingCard";
 
 export const HeroSection = () => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.cartItems);
 
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const getList = async () => {
     try {
+      setLoading(true);
       const response = await getListProducts();
       if (response?.status === 200) {
         if (response?.data) {
           setProducts(response.data);
         }
       }
+      setLoading(false);
     } catch (error) {
       console.log("-- error -- get list product-- ", error);
     }
@@ -55,6 +59,8 @@ export const HeroSection = () => {
           <h2 className="text-2xl font-bold tracking-tight text-base-content">
             Customers also purchased
           </h2>
+
+          {loading && <LoadingCard btn={1} />}
 
           <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (

@@ -7,6 +7,7 @@ import { Footer } from "../footer/footer";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { deleteProducts } from "../../services/product/ProductService";
 import { Toast } from "../toast/toast";
+import { LoadingCard } from "../loading/LoadingCard";
 
 export default function EditProduct() {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -16,12 +17,14 @@ export default function EditProduct() {
 
   const getList = async () => {
     try {
+      setLoading(true);
       const response = await getListProducts();
       if (response?.status === 200) {
         if (response?.data) {
           setProducts(response.data);
         }
       }
+      setLoading(false);
     } catch (error) {
       console.log("-- error -- get list product-- ", error);
     }
@@ -67,6 +70,8 @@ export default function EditProduct() {
             Edit Product
           </h2>
 
+          {loading && <LoadingCard btn={2} />}
+
           <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
               <div
@@ -97,7 +102,7 @@ export default function EditProduct() {
                   <div className="flex justify-between mt-2">
                     <a
                       href={`/product/edit/${product.id}`}
-                      className="btn btn-sm btn-warning"
+                      className="btn btn-sm"
                     >
                       Edit
                     </a>
