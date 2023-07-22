@@ -2,9 +2,18 @@
 
 **To run this project**, first, make sure you have installed all the required dependencies by running **npm install** in the project directory. After the installation is complete, you can start the development server using the command **npm run dev**.
 
+```
+npm install
+```
+
 If you want to run the project in production mode, use the command **npm run prod** Similarly, for the staging environment, use **npm run staging**.
 
+```
+npm run dev
+```
+
 These commands will build the project and start the server, making your application accessible through the specified environment.
+
 
 ## Table of Contents
 
