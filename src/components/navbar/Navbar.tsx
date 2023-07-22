@@ -80,12 +80,6 @@ export const Navbar = () => {
                     Home
                   </a>
                   <a
-                    href="/"
-                    className="inline-flex items-center hover:border-b-2 hover:border-primary focus:border-primary text-base-content px-1 pt-1 text-sm font-medium"
-                  >
-                    Transaction
-                  </a>
-                  <a
                     href="/product/add"
                     className="inline-flex items-center hover:border-b-2 hover:border-primary focus:border-primary text-base-content px-1 pt-1 text-sm font-medium"
                   >
@@ -227,13 +221,6 @@ export const Navbar = () => {
                 className="block border-l-4 border-primary bg-base-content py-2 pl-3 pr-4 text-base font-medium text-primary"
               >
                 Home
-              </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="/"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-base-content hover:border-base-content hover:bg-base-100"
-              >
-                Transaction
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
