@@ -182,7 +182,120 @@ These custom hooks are just examples of how you can handle Redux in your applica
 
 ## Redux Store
 
-Explanation of Redux store structure and reducers.
+The Redux store in this boilerplate is set up with multiple reducers to manage different parts of the application state. Let's take a closer look at each with the themeReducer example:
+
+### Theme Reducer - `themeReducer.ts`
+
+This reducer handles the application's theme, allowing users to switch between "light" and "dark" themes. The initial state is set to `light`.
+
+```tsx
+/redux/reducers/themeReducer.ts
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+// Define a type for the slice state
+export interface ThemeState {
+  theme: string;
+}
+
+// Define the initial state using that type
+const initialState: ThemeState = {
+  theme: 'light',
+};
+
+export const themeReducer = createSlice({
+  name: "theme",
+  initialState: initialState,
+  reducers: {
+    setTheme: (state, action: PayloadAction<string>) => {
+      state.theme = action.payload
+    },
+  },
+});
+
+// Action creators are generated for each case reducer function
+export const { setTheme } = themeReducer.actions;
+
+export default themeReducer.reducer;
+```
+
+### Redux Store Configuration - `stores.ts`
+
+The Redux store configuration is done using the `configureStore` function from `@reduxjs/toolkit`. It combines all the reducers and adds middleware for Redux Persist.
+
+```tsx
+/redux/stores.ts
+import { themeReducer } from "./reducers/themeReducer";
+import {
+  persistReducer,
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
+const persistThemeConfig = {
+  key: "theme",
+  storage,
+};
+
+const persistedTheme = persistReducer(
+  persistThemeConfig,
+  themeReducer.reducer
+);
+
+const store = configureStore({
+  reducer: {
+    themes: persistedTheme,
+    // Add other reducers here if needed
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>;
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch;
+
+export const persistor = persistStore(store);
+export default store;
+```
+
+### App Component - `App.tsx`
+
+The `App` component serves as the root component of the application. It uses the custom hooks `useAppSelector` to access the theme state from the Redux store. The theme is then applied to the `data-theme` attribute to dynamically change the app's appearance based on the selected theme.
+
+```tsx
+/App.tsx
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { HomePage, CategoryPage } from "./components/pages";
+import { useAppSelector } from "./hooks/reduxHook";
+
+function App() {
+  const theme = useAppSelector((state) => state.themes.theme);
+  return (
+    <div data-theme={theme || "light"}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/category" element={<CategoryPage />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+```
+
+With this Redux store setup, you can efficiently manage the application's state, including the theme selection, and access the data using custom hooks throughout your app.
 
 ## Services
 
