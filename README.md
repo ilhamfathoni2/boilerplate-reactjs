@@ -1,41 +1,129 @@
-In the project directory, you can run:
+# Boilerplate React.Js
 
-### `npm run dev`, `npm run prod`, `npm run staging`
-To run a boilerplate application you can use the environment you want, namely prod, dev and staging, so you need to create these three files before running
+**To run this project**, first, make sure you have installed all the required dependencies by running **npm install** in the project directory. After the installation is complete, you can start the development server using the command **npm run dev**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If you want to run the project in production mode, use the command **npm run prod** Similarly, for the staging environment, use **npm run staging**.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+These commands will build the project and start the server, making your application accessible through the specified environment.
 
-### `npm test`
+## Table of Contents
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Project Name](#project-name)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Folder Structure](#folder-structure)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Environment Variables](#environment-variables)
+  - [Available Scripts](#available-scripts)
+  - [Custom Hooks](#custom-hooks)
+  - [Redux Store](#redux-store)
+  - [Services](#services)
+  - [Utilities](#utilities)
+  - [Types](#types)
+  - [Contributing](#contributing)
+  - [License](#license)
 
-### `npm run build`
+## Introduction
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A brief introduction to your React.js project and its purpose.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Folder Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```plaintext
+boilerplate-react-js/
+  |----public/
+  |----src/
+            |----assets/
+                       |----image/
+                       |----index.ts
+            |----components/
+                       |----cart/
+                                |----Cart.tsx
+                       |----otherComponent/
+                                |----other.tsx
+                       |----pages/
+                                |----Home.tsx
+                                |----index.ts
+            |----hooks/
+                       |----reduxHooks.ts
+            |----redux/
+                       |----reducers/
+                                |----cartReducer.ts
+                                |----otherReducer.ts
+                       |----stores.ts
+            |----services/
+                       |----product/
+                                |----productServices.ts
+                       |----client.ts
+            |----types/
+                       |----ProductType.ts
+                       |----OtherType.ts
+            |----utils/
+                       |----formatCurrency.ts
+                       |----otherUtils.ts
+            |----App.tsx
+            |----App.css
+            |----index.tsx
+            |----index.css
+            |----other....
+    |----.env
+    |----.env.prod
+    |----.env.dev
+    |----.env.staging
+    |----.setup.env.js
+    |----tailwind.config.js
+    |----tsconfig.json
+    |----package.json
+```
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- List the main features of your project.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+How to install and set up the project on a local machine.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Usage
 
-## Learn More
+How to use your React.js project, including any commands or configurations.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Environment Variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Explanation of environment variables and their usage.
+
+## Available Scripts
+
+- List of available scripts to run in the project.
+
+## Custom Hooks
+
+Description of any custom hooks used in the project.
+
+## Redux Store
+
+Explanation of Redux store structure and reducers.
+
+## Services
+
+Description of any services used in the project (e.g., API calls).
+
+## Utilities
+
+Description of utility functions used in the project.
+
+## Types
+
+Explanation of different types/interfaces used throughout the project.
+
+## Contributing
+
+Guidelines for contributing to the project.
+
+## License
+
+Information about the project's license (e.g., MIT, Apache, etc.).
+
+Feel free to customize the README.md according to your project's specific details and requirements. Remember to include all the necessary information to help others understand and use your React.js project effectively.
