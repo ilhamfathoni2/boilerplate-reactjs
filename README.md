@@ -92,8 +92,6 @@ boilerplate-react-js/
 
 ## Installation
 
-## Installation
-
 To get started with the Boilerplate React.JS, follow these simple steps:
 
 1. Clone this repository to your local machine by running the following command:
