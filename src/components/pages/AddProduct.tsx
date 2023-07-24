@@ -42,13 +42,12 @@ export default function AddProduct() {
     try {
       setLoading(true);
       const response = await createProducts(values);
-      console.log("response: ", response);
       if (response?.status === 201) {
         navigate("/");
       }
       setLoading(false);
     } catch (error) {
-      console.log("-- error submit product: ", error);
+      console.log(' --error createProducts: ', error)
     }
   };
 

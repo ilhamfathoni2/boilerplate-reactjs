@@ -34,7 +34,7 @@ export default function EditDetail() {
           }
         }
       } catch (error) {
-        console.log("-- error -- get product by id -- ", error);
+        console.log(' --error getProduct in Edit Detail: ', error)
       }
     };
 
