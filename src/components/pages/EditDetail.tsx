@@ -8,6 +8,7 @@ import {
 } from "../../services/product/ProductService";
 import { useParams, useNavigate } from "react-router-dom";
 import { Navbar } from "../navbar/Navbar";
+import { toastError, toastSuccess } from "../toast/toast";
 
 export default function EditDetail() {
   const { id } = useParams();
@@ -34,7 +35,7 @@ export default function EditDetail() {
           }
         }
       } catch (error) {
-        console.log(' --error getProduct in Edit Detail: ', error)
+        toastError("Something went wrong", "Sorry, An unexpected error occurred");
       }
     };
 
@@ -46,10 +47,13 @@ export default function EditDetail() {
     try {
       const response = await updateProducts(values);
       if (response?.status === 200) {
-        navigate("/product/edit");
+        toastSuccess("Success", "Successfully update a product");
+        setTimeout(() => {
+          navigate("/product/edit");
+        }, 300);
       }
     } catch (error) {
-      console.log("-- error update product: ", error);
+      toastError("Something went wrong", "Sorry, An unexpected error occurred");
     }
   };
 

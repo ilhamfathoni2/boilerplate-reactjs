@@ -8,7 +8,9 @@ import {
   EditProduct,
   EditDetail,
 } from "./components/pages";
+import { ToastContainer } from "react-toastify";
 import { useAppSelector } from "./hooks/reduxHook";
+import "react-toastify/dist/ReactToastify.css";
 
 function AppRoute() {
   return (
@@ -28,6 +30,7 @@ function App() {
   return (
     <div data-theme={theme || "light"}>
       <AppRoute />
+      <ToastContainer />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { ProductType } from "../../types/ProductType";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { getListProducts } from "../../services/product/ProductService";
 import { LoadingCard } from "../loading/LoadingCard";
+import { toastError } from "../toast/toast";
 
 export const HeroSection = () => {
   const dispatch = useAppDispatch();
@@ -25,7 +26,7 @@ export const HeroSection = () => {
       }
       setLoading(false);
     } catch (error) {
-      console.log("-- error -- get list product-- ", error);
+      toastError("Something went wrong", "Sorry, An unexpected error occurred");
     }
   };
 

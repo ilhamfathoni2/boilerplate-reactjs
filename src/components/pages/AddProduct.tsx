@@ -5,6 +5,7 @@ import { FormikProps, useFormik } from "formik";
 import * as Yup from "yup";
 import { createProducts } from "../../services/product/ProductService";
 import { useNavigate } from "react-router-dom";
+import { toastError, toastSuccess } from "../toast/toast";
 
 export default function AddProduct() {
   const navigate = useNavigate();
@@ -43,11 +44,14 @@ export default function AddProduct() {
       setLoading(true);
       const response = await createProducts(values);
       if (response?.status === 201) {
-        navigate("/");
+        toastSuccess("Success", "Successfully create a new product");
+        setTimeout(() => {
+          navigate("/");
+        }, 2500);
       }
       setLoading(false);
     } catch (error) {
-      console.log(' --error createProducts: ', error)
+      toastError("Something went wrong", "Sorry, An unexpected error occurred");
     }
   };
 
