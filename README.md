@@ -68,7 +68,7 @@ boilerplate-react-js/
 └── package.json
 ```
 
-![home](https://drive.google.com/file/d/1YTUASGuuyLg4uj_AUJQKv9URLqa3_tfm/view?usp=sharing)
+![home]([https://drive.google.com/file/d/1YTUASGuuyLg4uj_AUJQKv9URLqa3_tfm/view?usp=sharing](https://drive.google.com/file/d/1YTUASGuuyLg4uj_AUJQKv9URLqa3_tfm/view))
 
 ## Features
 This boilerplate React.js project comes with several main features:
