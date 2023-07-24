@@ -68,6 +68,8 @@ boilerplate-react-js/
 └── package.json
 ```
 
+![home](https://drive.google.com/file/d/1YTUASGuuyLg4uj_AUJQKv9URLqa3_tfm/view?usp=sharing)
+
 ## Features
 This boilerplate React.js project comes with several main features:
 1. **API Integration for Product CRUD:** The project includes integration with an API to perform CRUD operations for products.
