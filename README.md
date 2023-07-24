@@ -17,9 +17,6 @@ Welcome to the Boilerplate React.JS, a comprehensive starter template designed t
   - [Redux Store](#redux-store)
   - [Services](#services)
   - [Utilities](#utilities)
-  - [Types](#types)
-  - [Contributing](#contributing)
-  - [License](#license)
 
 ## Folder Structure
 
