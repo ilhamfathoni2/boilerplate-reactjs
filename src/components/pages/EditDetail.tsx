@@ -50,7 +50,7 @@ export default function EditDetail() {
         toastSuccess("Success", "Successfully update a product");
         setTimeout(() => {
           navigate("/product/edit");
-        }, 300);
+        }, 1500);
       }
     } catch (error) {
       toastError("Something went wrong", "Sorry, An unexpected error occurred");
