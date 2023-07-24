@@ -67,9 +67,17 @@ boilerplate-react-js/
 ├── tsconfig.json
 └── package.json
 ```
+
+## System Requirements
+Before running this project, ensure that you have the following installed on your system:
+
+- Node.js (recommended version 16 or latest version)
+- npm (Node Package Manager, usually included with Node.js)
+- Chrome / Firefox / Safari (latest version)
+
 ![home](https://github.com/ilhamfathoni2/boilerplate-reactjs/blob/master/src/assets/image/dressId.png)
 
-## Features
+## Main Features and Dependencies
 This boilerplate React.js project comes with several main features:
 1. **API Integration for Product CRUD:** The project includes integration with an API to perform CRUD operations for products.
 
@@ -84,6 +92,14 @@ This boilerplate React.js project comes with several main features:
 6. **Environment Selection:** Enables you to run the application in different environments (development, production, or staging) by creating three environment files: `.env`, `.env.prod`, and `.env.staging`. The selected environment's variables will be read by `process.env.REACT_APP...` during application runtime.
 
 7. **Custom Hooks for Redux Handling:** Offers custom hooks like `useAppDispatch` and `useAppSelector` to handle Redux state and actions in a type-safe manner. You can create additional custom hooks in the `hooks` folder to further encapsulate and reuse logic related to Redux.
+   
+8. TypeScript - A superset of JavaScript that adds static typing to the language.
+    
+9. React Toastify - A library for showing toast notifications in React applications.
+    
+10. Formik - A form library for React that helps in handling form validations and form submission.
+
+11. Yup - A schema validation library used to validate form inputs.
 
 With this feature-rich boilerplate, you can kickstart your React.js projects and enjoy a productive development experience.
 
@@ -492,5 +508,36 @@ const ProductCard = ({ price }) => {
 ```
 
 By utilizing the utility function within components, you can achieve consistent and formatted currency displays without manually formatting the values in multiple places. This improves code maintainability and readability, making the codebase more efficient and robust.
+
+## Dependencies
+The project relies on the following dependencies:
+
+- **@headlessui/react** (^1.7.15) - A set of completely unstyled, fully accessible UI components for React.
+- **@heroicons/react** (^2.0.18) - A set of free MIT-licensed high-quality SVG icons for React.
+- **@reduxjs/toolkit** (^1.9.5) - A package that provides utilities to simplify the process of working with Redux.
+- **@testing-library/jest-dom** (^5.16.5) - Custom jest matchers for DOM testing.
+- **@testing-library/react** (^13.4.0) - Testing utilities for React components.
+- **@testing-library/user-event** (^13.5.0) - Library for simulating user events in testing.
+- **@types/jest** (^27.5.2) - TypeScript definitions for Jest.
+- **@types/node** (^16.18.38) - TypeScript definitions for Node.js.
+- **@types/react** (^18.2.14) - TypeScript definitions for React.
+- **@types/react-dom** (^18.2.6) - TypeScript definitions for React DOM.
+- **@types/react-redux** (^7.1.25) - TypeScript definitions for React Redux.
+- **axios** (^1.4.0) - A popular HTTP client library for making API requests.
+- **firebase** (^10.1.0) - The core Firebase SDK, providing the functionality for Firebase services.
+- **formik** (^2.4.2) - A form library for React that helps in handling form validations and form submission.
+- **react** (^18.2.0) - A popular JavaScript library for building user interfaces.
+- **react-dom** (^18.2.0) - Entry point for working with React DOM.
+- **react-redux** (^8.1.1) - Official React bindings for Redux, allowing React components to read data from the Redux store.
+- **react-router-dom** (^6.14.1) - A routing library for React that allows you to handle navigation and routing in your application.
+- **react-scripts** (5.0.1) - A set of scripts and configuration used by Create React App.
+- **react-toastify** (^9.1.3) - A library for showing toast notifications in React applications.
+- **redux-persist** (^6.0.0) - A library that allows you to persist the Redux store in local storage, ensuring that state data is retained even after a page reload.
+- **typescript** (^4.9.5) - A superset of JavaScript that adds static typing to the language.
+- **web-vitals** (^2.1.4) - Library for measuring key metrics of web apps, like first paint and time to interactive.
+- **yargs** (^17.7.2) - A library for building interactive command-line tools.
+- **yup** (^1.2.0) - A schema validation library used to validate form inputs.
+
+Make sure to install these dependencies before running the project. You can install them by running `npm install` in the project root directory.
 
 Feel free to customize the README.md according to your project's specific details and requirements. Remember to include all the necessary information to help others understand and use your React.js project effectively.
