@@ -295,15 +295,203 @@ With this Redux store setup, you can efficiently manage the application's state,
 
 ## Services
 
-Description of any services used in the project (e.g., API calls).
+This folder contains service files that handle API calls and client configurations.
 
-## Utilities
+## `productService.ts`
 
-Description of utility functions used in the project.
+The `productService.ts` file provides functions to interact with the product API endpoints.
 
-## Types
+### Functions:
 
-Explanation of different types/interfaces used throughout the project.
+1. `getListProducts()`
 
+   This function sends a GET request to the `/api/v1/ProductList` endpoint to fetch the list of products.
+
+   ```typescript
+   import { AxiosResponse } from "axios";
+   import { ProductType } from "../../types/ProductType";
+   
+   interface ProductListResponse extends AxiosResponse {
+     data: ProductType;
+   }
+   
+   export const getListProducts = async () => {
+     try {
+       const res: AxiosResponse = await client<ProductListResponse>({
+         url: "/api/v1/ProductList",
+         method: "get",
+       });
+       return res;
+     } catch (error) {
+       if (axios.isAxiosError(error)) {
+         return error?.response ?? null;
+       } else {
+         return null;
+       }
+     }
+   };
+   ```
+
+## `client.ts`
+
+The `client.ts` file provides a customized Axios instance for API requests.
+
+### Configuration:
+
+The Axios instance is created with the base URL obtained from the `REACT_APP_API_ECOMMERCE` environment variable.
+
+```typescript
+import axios, { AxiosError, AxiosResponse } from "axios";
+
+const { REACT_APP_API_ECOMMERCE } = process.env;
+
+const client = axios.create({
+  baseURL: REACT_APP_API_ECOMMERCE,
+});
+```
+
+### Interceptors:
+
+1. Request Interceptor
+
+   The request interceptor is used to modify the request configuration before the request is sent.
+
+   ```typescript
+   client.interceptors.request.use(
+     function (config) {
+       // Set the base URL for the request
+       config.baseURL = REACT_APP_API_ECOMMERCE;
+       return config;
+     },
+     function (error) {
+       // Handle request error
+       return Promise.reject(error);
+     }
+   );
+   ```
+
+2. Response Interceptor
+
+   The response interceptor is used to handle successful responses and response errors.
+
+   ```typescript
+   const onResponse = (response: AxiosResponse): AxiosResponse => {
+     return response;
+   };
+   
+   const onResponseError = (error: AxiosError): Promise<AxiosError> => {
+     return Promise.reject(error);
+   };
+   
+   client.interceptors.response.use(onResponse, onResponseError);
+   ```
+
+## Example Usage
+
+To use the `getListProducts` function in the Home component to display the list of products:
+
+```typescript
+import { useEffect, useState } from "react";
+import { getListProducts } from "../services/product/productService";
+import { ProductType } from "../types/ProductType";
+
+const Home = () => {
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState<ProductType[]>([]);
+
+  const getList = async () => {
+    try {
+      setLoading(true);
+      const response = await getListProducts();
+      if (response?.status === 200) {
+        if (response?.data) {
+          setProducts(response.data);
+        }
+      }
+      setLoading(false);
+    } catch (error) {
+      toastError("Something went wrong", "Sorry, An unexpected error occurred");
+    }
+  };
+
+  useEffect(() => {
+    getList();
+  }, []);
+
+  // Rest of the component code...
+
+  return (
+    // Render the list of products
+  );
+};
+
+export default Home;
+```
+
+By using the `getListProducts` function from the `productService.ts` file, you can easily fetch the list of products from the API and display them in the Home component. If any errors occur during the API call, the error will be caught in the `catch` block and an error message will be displayed using the `toastError` function (assuming it's defined elsewhere in your project).
+
+# Utilities
+
+The `utilities` folder contains utility/helper functions that provide reusable functionalities and aid in the development process.
+
+## Purpose
+
+The purpose of the `utilities` folder is to store standalone functions or modules that perform specific tasks, which can be used across different components and modules in the application. These utility functions help improve code organization, enhance code reusability, and maintain a clean and structured project architecture.
+
+## Files
+
+The `utilities` folder may contain various utility files, each serving a specific purpose. Some common types of utility functions that can be found in this folder include:
+
+1. **Data Formatting Utilities**: Functions to format data, such as converting dates, currency, or numbers to a specific format for display.
+
+2. **Validation Utilities**: Functions to validate user inputs, form data, or other data types to ensure data integrity and user experience.
+
+3. **Helper Functions**: General-purpose helper functions that provide common functionalities, like generating unique IDs, handling asynchronous operations, etc.
+
+4. **API Helpers**: Functions that encapsulate API calls, making it easier to interact with APIs from different parts of the application.
+
+## Benefits
+
+Organizing utility functions in a dedicated folder provides several benefits:
+
+1. **Code Reusability**: By centralizing utility functions, developers can easily reuse these functions in different components and modules, reducing code duplication and promoting a modular codebase.
+
+2. **Code Maintenance**: Separate utility functions from the main components can make the codebase more maintainable, as it is easier to find and update specific functionalities.
+
+3. **Improved Readability**: Placing utility functions in their dedicated folder enhances code readability and organization, making it easier for developers to understand the project structure and quickly locate relevant functions.
+
+4. **Testability**: Isolating utility functions allows for easier unit testing, ensuring the correctness and reliability of these functions.
+
+## Example
+
+Here is an example of a `formatCurrency` utility function that formats a given number to a specific currency format:
+
+```javascript
+// utilities/formatCurrency.js
+
+export const formatCurrency = (value: number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(value);
+};
+```
+
+With this utility function, you can easily format currency values consistently throughout the application without duplicating the formatting logic.
+
+## Usage
+
+To use the `formatCurrency` utility function in any component:
+
+```javascript
+import { formatCurrency } from "../utilities/formatCurrency";
+
+const ProductCard = ({ price }) => {
+  return <div>{formatCurrency(price)}</div>;
+};
+```
+
+By utilizing the utility function within components, you can achieve consistent and formatted currency displays without manually formatting the values in multiple places. This improves code maintainability and readability, making the codebase more efficient and robust.
 
 Feel free to customize the README.md according to your project's specific details and requirements. Remember to include all the necessary information to help others understand and use your React.js project effectively.
