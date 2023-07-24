@@ -6,7 +6,6 @@ Welcome to the Boilerplate React.JS, a comprehensive starter template designed t
 ## Table of Contents
 
 - [Boilerplate React.Js](#project-name)
-  - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Folder Structure](#folder-structure)
   - [Features](#features)
