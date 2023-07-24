@@ -178,7 +178,7 @@ const selectedData = useAppSelector((state) => state.someSlice.data);
 
 These custom hooks are just examples of how you can handle Redux in your application. **You can create your own custom hooks in the `hooks` folder to encapsulate and reuse logic that involves Redux state and actions.** This approach promotes code organization, reusability, and maintainability.
 
-## Redux Store
+## Redux
 
 The Redux store in this boilerplate is set up with multiple reducers to manage different parts of the application state. Let's take a closer look at each with the themeReducer example:
 
@@ -296,7 +296,7 @@ With this Redux store setup, you can efficiently manage the application's state,
 
 This folder contains service files that handle API calls and client configurations.
 
-## `productService.ts`
+### `productService.ts`
 
 The `productService.ts` file provides functions to interact with the product API endpoints.
 
@@ -331,7 +331,7 @@ The `productService.ts` file provides functions to interact with the product API
    };
    ```
 
-## `client.ts`
+### `client.ts`
 
 The `client.ts` file provides a customized Axios instance for API requests.
 
@@ -385,7 +385,7 @@ const client = axios.create({
    client.interceptors.response.use(onResponse, onResponseError);
    ```
 
-## Example Usage
+### Example Usage
 
 To use the `getListProducts` function in the Home component to display the list of products:
 
@@ -429,15 +429,15 @@ export default Home;
 
 By using the `getListProducts` function from the `productService.ts` file, you can easily fetch the list of products from the API and display them in the Home component. If any errors occur during the API call, the error will be caught in the `catch` block and an error message will be displayed using the `toastError` function (assuming it's defined elsewhere in your project).
 
-# Utilities
+## Utilities
 
 The `utilities` folder contains utility/helper functions that provide reusable functionalities and aid in the development process.
 
-## Purpose
+### Purpose
 
 The purpose of the `utilities` folder is to store standalone functions or modules that perform specific tasks, which can be used across different components and modules in the application. These utility functions help improve code organization, enhance code reusability, and maintain a clean and structured project architecture.
 
-## Files
+### Files
 
 The `utilities` folder may contain various utility files, each serving a specific purpose. Some common types of utility functions that can be found in this folder include:
 
@@ -449,7 +449,7 @@ The `utilities` folder may contain various utility files, each serving a specifi
 
 4. **API Helpers**: Functions that encapsulate API calls, making it easier to interact with APIs from different parts of the application.
 
-## Benefits
+### Benefits
 
 Organizing utility functions in a dedicated folder provides several benefits:
 
@@ -461,7 +461,7 @@ Organizing utility functions in a dedicated folder provides several benefits:
 
 4. **Testability**: Isolating utility functions allows for easier unit testing, ensuring the correctness and reliability of these functions.
 
-## Example
+### Example
 
 Here is an example of a `formatCurrency` utility function that formats a given number to a specific currency format:
 
@@ -479,7 +479,7 @@ export const formatCurrency = (value: number) => {
 
 With this utility function, you can easily format currency values consistently throughout the application without duplicating the formatting logic.
 
-## Usage
+### Usage
 
 To use the `formatCurrency` utility function in any component:
 
