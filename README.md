@@ -67,20 +67,23 @@ boilerplate-react-js/
 ├── tsconfig.json
 └── package.json
 ```
+![home](https://github.com/ilhamfathoni2/boilerplate-reactjs/blob/master/src/assets/image/dressId.png)
 
 ## Features
 This boilerplate React.js project comes with several main features:
 1. **API Integration for Product CRUD:** The project includes integration with an API to perform CRUD operations for products.
 
 2. **Redux with Redux Persist for Cart Handling:** Utilizes Redux to manage the cart data, and Redux Persist ensures that the cart data persists even after refreshing the application.
+   ![cart](https://github.com/ilhamfathoni2/boilerplate-reactjs/blob/master/src/assets/image/cart.png)
 
-3. **Dynamic Theme Switching with DaisyUI:** Allows users to switch between different UI themes using DaisyUI, and you can even customize the themes in the `tailwind.config.js` file.
+4. **Dynamic Theme Switching with DaisyUI:** Allows users to switch between different UI themes using DaisyUI, and you can even customize the themes in the `tailwind.config.js` file.
+   ![theme](https://github.com/ilhamfathoni2/boilerplate-reactjs/blob/master/src/assets/image/theme.png)
 
-4. **TailwindCSS and DaisyUI Integration:** Comes with various components integrated with TailwindCSS and DaisyUI to create stunning user interfaces.
+5. **TailwindCSS and DaisyUI Integration:** Comes with various components integrated with TailwindCSS and DaisyUI to create stunning user interfaces.
 
-5. **Environment Selection:** Enables you to run the application in different environments (development, production, or staging) by creating three environment files: `.env`, `.env.prod`, and `.env.staging`. The selected environment's variables will be read by `process.env.REACT_APP...` during application runtime.
+6. **Environment Selection:** Enables you to run the application in different environments (development, production, or staging) by creating three environment files: `.env`, `.env.prod`, and `.env.staging`. The selected environment's variables will be read by `process.env.REACT_APP...` during application runtime.
 
-6. **Custom Hooks for Redux Handling:** Offers custom hooks like `useAppDispatch` and `useAppSelector` to handle Redux state and actions in a type-safe manner. You can create additional custom hooks in the `hooks` folder to further encapsulate and reuse logic related to Redux.
+7. **Custom Hooks for Redux Handling:** Offers custom hooks like `useAppDispatch` and `useAppSelector` to handle Redux state and actions in a type-safe manner. You can create additional custom hooks in the `hooks` folder to further encapsulate and reuse logic related to Redux.
 
 With this feature-rich boilerplate, you can kickstart your React.js projects and enjoy a productive development experience.
 
